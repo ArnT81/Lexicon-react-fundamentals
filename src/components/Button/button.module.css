@@ -1,0 +1,10 @@
+.button {
+	padding: 8px 16px;
+	height: fit-content;
+	width: 111.25px;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	background: linear-gradient(180deg, #007bff, #002BFF);
+	box-shadow: 2px 2px 4px black;
+}

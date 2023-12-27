@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Navbar } from './components/Navbar/Navbar';
+import Grid from './components/Grid/Grid';
+import { Button } from './components/Button/Button';
+import { TextContainer } from './components/TextContainer/TextContainer';
+import { ImageContainer } from './components/ImageContainer/ImageContainer';
 
 function App() {
+  const [buttonTitle, setButtonTitle] = useState('Show text')
+
+
+  const toggleButtonTitle = () => {
+    if (buttonTitle === 'Show text') setButtonTitle('Hide text')
+    else setButtonTitle('Show text')
+  }
+
+  const handleClick = () => {
+    toggleButtonTitle()
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Grid
+        columns={1}
+        width='70%'
+      >
+        <Grid columns={3}>
+          <Button
+            onClick={handleClick}
+            title={buttonTitle}
+          />
+          <TextContainer showText={buttonTitle === 'Hide text'} />
+          <ImageContainer />
+        </Grid>
+      </Grid>
+    </>
   );
 }
 
